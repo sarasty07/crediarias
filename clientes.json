@@ -1,0 +1,75 @@
+{
+  "_leeme": [
+    "AYUDA: el JSON no admite comentarios, por eso las instrucciones van aquí. Puedes borrar este campo si quieres.",
+    "Cada cliente es un bloque { ... } dentro de 'clientes', separado por coma del siguiente (sin coma después del último).",
+    "codigo: lo que el cliente escribe (en MAYÚSCULAS). pin: 4 números, siempre entre comillas.",
+    "creditoActivo: el crédito vigente. Si no tiene ninguno, escribe null (sin comillas).",
+    "estado: 'al_dia' | 'pendiente' | 'prorroga' | 'vencido'.",
+    "Fechas en formato 'AAAA-MM-DD'. Montos en pesos, sin puntos ni comas (ej. 200000).",
+    "El total abonado y el saldo pendiente se calculan solos a partir de 'abonos' y 'totalAcordado'.",
+    "historial: créditos ya terminados. Si no hay, escribe []. Usa siempre comillas dobles."
+  ],
+  "clientes": [
+    {
+      "codigo": "CARLOS01",
+      "pin": "1234",
+      "nombre": "Carlos",
+      "cedula": "1.000.000.001",
+      "telefono": "300 111 1111",
+      "creditoActivo": {
+        "estado": "pendiente",
+        "fechaInicio": "2026-11-02",
+        "vencimiento": "2026-11-15",
+        "montoNeto": 200000,
+        "totalAcordado": 230000,
+        "abonos": [],
+        "nota": "Tu crédito salió cerca del corte, así que la primera fecha de pago es el 15 de noviembre."
+      },
+      "historial": []
+    },
+    {
+      "codigo": "ANDRES01",
+      "pin": "2345",
+      "nombre": "Andrés",
+      "cedula": "1.000.000.002",
+      "telefono": "300 222 2222",
+      "creditoActivo": {
+        "estado": "pendiente",
+        "fechaInicio": "2026-10-15",
+        "vencimiento": "2026-11-30",
+        "montoNeto": 300000,
+        "totalAcordado": 360000,
+        "abonos": [
+          { "fecha": "2026-10-30", "monto": 180000, "concepto": "Cuota 1 de 2" }
+        ],
+        "nota": ""
+      },
+      "historial": [
+        { "periodo": "Jun – Jul 2026", "montoNeto": 100000, "totalPagado": 115000, "resultado": "Pagado a tiempo" }
+      ]
+    },
+    {
+      "codigo": "JOSE01",
+      "pin": "3456",
+      "nombre": "José",
+      "cedula": "1.000.000.003",
+      "telefono": "300 333 3333",
+      "creditoActivo": {
+        "estado": "prorroga",
+        "fechaInicio": "2026-10-01",
+        "vencimiento": "2026-11-30",
+        "montoNeto": 150000,
+        "totalAcordado": 190000,
+        "abonos": [
+          { "fecha": "2026-10-15", "monto": 20000, "concepto": "Tarifa de prórroga (1 quincena)" },
+          { "fecha": "2026-10-30", "monto": 40000, "concepto": "Abono a capital" }
+        ],
+        "nota": "Tienes una prórroga activa de 1 quincena. Cada quincena extra tiene una tarifa fija de $20.000."
+      },
+      "historial": [
+        { "periodo": "Mar – Abr 2026", "montoNeto": 100000, "totalPagado": 120000, "resultado": "Renovado y pagado" },
+        { "periodo": "Ene – Feb 2026", "montoNeto": 80000, "totalPagado": 96000, "resultado": "Pagado a tiempo" }
+      ]
+    }
+  ]
+}
